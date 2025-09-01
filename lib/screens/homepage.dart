@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool expanded = false;
+  bool expandedBalance = false;
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                           TextButton(
                              onPressed: () {
                               setState(() {
-                                expanded = !expanded; 
+                                expandedBalance = !expandedBalance; 
                               });
                             },
                             style: TextButton.styleFrom(
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                               tapTargetSize: MaterialTapTargetSize.shrinkWrap
                             ),  
                             child: Text(
-                              expanded ? "ดูน้อยลง" : "ดูเพิ่มเติม",
+                              expandedBalance ? "ดูน้อยลง" : "ดูเพิ่มเติม",
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                 color: Theme.of(context).colorScheme.primary,
                                 decoration: TextDecoration.underline,
@@ -119,24 +119,21 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [ 
-                      //     LeaveBalanceCard(used: "10", total: "/15", title: "ลากิจ", icon: Icons.event),
-                      //     LeaveBalanceCard(used: "10", total: "/15", title: "ลาป่วย", icon: Icons.medical_services),
-                      //     LeaveBalanceCard(used: "10", total: "/15", title: "ลาพักร้อน", icon: Icons.beach_access),
-                      //   ]
-                      // ),
-                      GridView.count(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        crossAxisCount: 3,
-                        mainAxisSpacing: 5,
-                        crossAxisSpacing: 5,
-                        padding: EdgeInsets.zero,
-                        children: List.generate(expanded ? 15 : 3, (index) {  
-                          return LeaveBalanceCard(used: "10", total: "/15", title: "ลากิจ", icon: Icons.event);
-                        }),
+                   
+                      AnimatedSize(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                        child: GridView.count(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          crossAxisCount: 3,
+                          mainAxisSpacing: 5,
+                          crossAxisSpacing: 5,
+                          padding: EdgeInsets.zero,
+                          children: List.generate(expandedBalance ? 15 : 3, (index) {
+                            return visibleCards[index];
+                          }),
+                        ),
                       ),
 
                       const SizedBox(

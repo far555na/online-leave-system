@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:online_leave_system/main.dart';
+import 'package:online_leave_system/theme/color_scheme.dart';
 
 class LeaveBalanceCard extends StatelessWidget {
   final String used;
@@ -75,3 +77,21 @@ class LeaveBalanceCard extends StatelessWidget {
     );
   }
 }
+
+List<Widget> visibleCards = [ 
+    LeaveBalanceCard(used: "10", total: "/15", title: "ป่วย", icon: Icons.medical_services), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "กิจธุระ", icon: Icons.work), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "พักร้อน", icon: Icons.beach_access), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "ป่วยจากงาน", icon: Icons.warning), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "ประชุมราชการ", icon: Icons.account_balance), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "ประชุมบริษัท", icon: Icons.business), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "ฝึกอบรม", icon: Icons.school), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "ทำศพ", icon: Icons.local_florist), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "ภัยธรรมชาติ", icon: Icons.flash_on), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "เรียกทหาร", icon: Icons.military_tech), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "อุปสมบท", icon: Icons.self_improvement), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "งานสมรส", icon: Icons.favorite), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "คลอดบุตร", icon: Icons.child_care), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "ภรรยาคลอด", icon: Icons.family_restroom), 
+    LeaveBalanceCard(used: "10", total: "/15", title: "ทำหมัน", icon: Icons.health_and_safety), 
+  ];
