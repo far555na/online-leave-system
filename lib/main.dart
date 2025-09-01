@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_leave_system/screens/homepage.dart';
+import 'package:online_leave_system/screens/bottom_nav.dart';
 import 'package:online_leave_system/theme/color_scheme.dart';
 import 'package:online_leave_system/theme/text_theme.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         textTheme: customTextTheme,
         fontFamily: "NotoSans",
       ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      home: const BottomNav(),
     );
   }
 }
